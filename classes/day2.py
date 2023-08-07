@@ -6,11 +6,11 @@
 
 A=10
 B=20
-C = A + B
+C = A+B
 print(C)
 
 # substract operator
-C = A - B
+C = A-B
 print(C)
 
 # muliply opertor
@@ -92,10 +92,3 @@ A=10
 B=20
 C=A!=B
 print(C)
-
-
-
-
-
-
-
