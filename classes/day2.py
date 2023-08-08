@@ -17,6 +17,7 @@ print(C)
 C = A * B
 print(C)
 
+
 # division operator
 C = A / B
 print(C)
