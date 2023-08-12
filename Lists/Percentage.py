@@ -9,3 +9,4 @@ def sub_jects(points):
 points=[9,10,7,10,10,9]
 sub_jects(points)
 
+
