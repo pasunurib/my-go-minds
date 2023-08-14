@@ -10,7 +10,7 @@ points=[9,10,7,10,10,9]
 sub_jects(points)
 
 
-points=int(input("Enter the points ="))
+points=10
 
 '''Grades of Subjects '''
 def Grades_010():
@@ -30,6 +30,10 @@ def Grades_010():
         print("Grade F   ")
 
 Grades_010()
+
+
+
+
 
 
 
