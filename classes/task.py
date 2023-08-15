@@ -1,4 +1,3 @@
-
 s1=int(input("Enter (Telugu) Subject Marks= "))
 s2=int(input("Enter (Hindi) Subject Marks= "))
 s3=int(input("Enter (English) Subject Marks= "))
@@ -18,6 +17,9 @@ elif Percentage>=50:
     Grade="B2"
 else:
     Grade="F"
+
+
+
 
 print("Total Marks : " ,Total)
 print("Percentage : ",Percentage,"%")
