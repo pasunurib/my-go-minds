@@ -58,6 +58,5 @@ def table_code():
     for count in range(1, 11):
         product = number10 * count
         print(number10, "X", count, "=", product)
-
 table_code()
 
