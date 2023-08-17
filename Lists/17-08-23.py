@@ -5,5 +5,3 @@ Points=[9,10,6,10,10,9]
 
 for i in range(6):
     print(Subjects[i],' = ', Marks[i],' = ',Grade[i],' = ',Points[i],'Points')
-
-
