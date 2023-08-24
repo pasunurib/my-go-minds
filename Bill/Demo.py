@@ -1,15 +1,166 @@
 from tkinter import *
+from tkinter import messagebox
+import random,os
 #Functionality Part
+
+if not os.path.exists('bills'):
+    os.mkdir('bills')
+
+def save_bill():
+    global billnumber
+    result=messagebox.askyesno('Confirm','Do you want to save the bill')
+    if result:
+        bill_content=textarea.get(1.0,END)
+        file=open(f'bills/{billnumber}.txt','w')
+        file.write(bill_content)
+        file.close()
+        messagebox.showinfo('Success',f'Bill No {billnumber} is Saved Successfully')
+        billnumber = random.randint(1, 1000)
+
+
+billnumber=random.randint(1,1000)
+
+def bill_area():
+    #if nameEntry.get()=='' and phoneEntry.get()=='':
+       # messagebox.showerror('Error','Customer Details are Required')
+   # elif cosmeticpriceEntry.get()=='' and grocerypriceEntry.get()=='' and colddrinkpriceEntry.get()=='':
+      #  messagebox.showerror('Error', 'No Products are Selected')
+    #elif cosmeticpriceEntry.get()=='0 Rs' and grocerypriceEntry.get()=='0 Rs' and colddrinkpriceEntry.get()=='0 Rs':
+       # messagebox.showerror('Error', 'No Products are Selected')
+   #else:
+        textarea.delete(1.0,END)
+
+        textarea.insert(END,'\t\t**Welcome Customer**\n')
+        textarea.insert(END,f'\nBill Number: {billnumber}\n')
+        textarea.insert(END, f'\nCustomer Name: {nameEntry.get()}\n')
+        textarea.insert(END, f'\nMobile Number: {phoneEntry.get()}\n')
+        textarea.insert(END,'============================================================')
+        textarea.insert(END,'\tProduct\t\t\tQuantity\t\t\tPrice')
+        textarea.insert(END, '\n============================================================')
+        if bathsoapEntry.get()!='0':
+            textarea.insert(END,f'Bath Soap\t\t\t{bathsoapEntry.get()}\t\t\t{soapprice} Rs')
+        if faceCreamEntry.get()!='0':
+            textarea.insert(END,f'\nFace Cream\t\t\t{faceCreamEntry.get()}\t\t\t{facecream} Rs')
+        if facewashEntry.get()!='0':
+            textarea.insert(END,f'\nFace Wash\t\t\t{facewashEntry.get()}\t\t\t{facewash} Rs')
+        if hairsprayEntry.get()!='0':
+            textarea.insert(END,f'\nHair Spray\t\t\t{hairsprayEntry.get()}\t\t\t{haircream} Rs')
+        if hairgelentry.get()!='0':
+            textarea.insert(END,f'\nHair Gel\t\t\t{hairgelentry.get()}\t\t\t{hairgell} Rs')
+        if bodylotionEntry.get()!='0':
+            textarea.insert(END,f'\nBody Lotion\t\t\t{bodylotionEntry.get()}\t\t\t{bodylotion} Rs')
+       #Grocery Bill Area
+        if oilEntry.get()!='0':
+            textarea.insert(END,f'\nOil\t\t\t{oilEntry.get()}\t\t\t{oilprice} Rs')
+        if riceEntry.get()!='0':
+            textarea.insert(END,f'\nRice\t\t\t{riceEntry.get()}\t\t\t{riceprice} Rs')
+        if daallEntry.get()!='0':
+            textarea.insert(END,f'\nDall\t\t\t{daallEntry.get()}\t\t\t{daalprice} Rs')
+        if wheatEntry.get()!='0':
+            textarea.insert(END,f'\nWheat\t\t\t{wheatEntry.get()}\t\t\t{wheatprice} Rs')
+        if sugarEntry.get()!='0':
+            textarea.insert(END,f'\nSugar\t\t\t{sugarEntry.get()}\t\t\t{sugarprice} Rs')
+        if teaEntry.get()!='0':
+            textarea.insert(END,f'\nTea Powder\t\t\t{teaEntry.get()}\t\t\t{teaprice} Rs')
+
+        #Cold Drinks
+        if maazaEntry.get()!='0':
+            textarea.insert(END,f'\nMaaza\t\t\t{maazaEntry.get()}\t\t\t{maazaprice} Rs')
+        if tumsupEntry.get()!='0':
+            textarea.insert(END,f'\nThums Up\t\t\t{tumsupEntry.get()}\t\t\t{tumsupprice} Rs')
+        if pepsiEntry.get()!='0':
+            textarea.insert(END,f'\nPepsi\t\t\t{pepsiEntry.get()}\t\t\t{pepsiprice} Rs')
+        if spriteEntry.get()!='0':
+            textarea.insert(END,f'\nSprite\t\t\t{spriteEntry.get()}\t\t\t{spriteprice} Rs')
+        if dewEntry.get()!='0':
+            textarea.insert(END,f'\nDew\t\t\t{dewEntry.get()}\t\t\t{dewprice} Rs')
+        if frootiEntry.get()!='0':
+            textarea.insert(END,f'\nFrooti\t\t\t{frootiEntry.get()}\t\t\t{frootiprice} Rs')
+
+        textarea.insert(END, '\n------------------------------------------------------------')
+
+        if cosmetictaxEntry.get()!='0.0 Rs':
+            textarea.insert(END,f'\n Cosmetic Tax\t\t\t{cosmetictaxEntry.get()}')
+        if grocerytaxEntry.get() != '0.0 Rs':
+            textarea.insert(END, f'\n Grocery Tax\t\t\t{grocerytaxEntry.get()}')
+        if colddrinktaxEntry.get() != '0.0 Rs':
+            textarea.insert(END, f'\n ColdDrink Tax\t\t\t{colddrinktaxEntry.get()}')
+
+        textarea.insert(END, '\n------------------------------------------------------------')
+
+        textarea.insert(END,f'\n TotalBill\t\t\t{totalbill} Rs')
+        save_bill()
+
+
+
+
+
 def total():
+    global soapprice,facecream,facewash,haircream,hairgell,bodylotion
+    global riceprice,oilprice,daalprice,wheatprice,sugarprice,teaprice
+    global maazaprice,tumsupprice,pepsiprice,spriteprice,dewprice,frootiprice
+    global totalbill
+    #Cosmetic calculation
     soapprice=int(bathsoapEntry.get())*20
     facecream=int(faceCreamEntry.get())*50
     facewash= int(facewashEntry.get()) * 100
     haircream = int(hairsprayEntry.get()) * 150
     hairgell= int(hairgelentry.get()) * 50
-    bodylotion = int(bodylotionEntry.get()) * 60
+    bodylotion = int(bodylotionEntry.get()) * 6
 
-    Totalcosmeticprice =soapprice+facecream+facewash+haircream+hairgell+bodylotion
-    cosmeticpriceEntry.insert(0,f'{Totalcosmeticprice} Rs')
+    Totalcosmeticprice = soapprice + facecream + facewash + haircream + hairgell + bodylotion
+    cosmeticpriceEntry.delete(0,END)
+    cosmeticpriceEntry.insert(0, f'{Totalcosmeticprice} Rs')
+    #Cosmetic Tax
+    cosmetictax=Totalcosmeticprice*0.12
+    cosmetictaxEntry.delete(0,END)
+    cosmetictaxEntry.insert(0,f'{cosmetictax} Rs')
+    #Grocery Calculation
+
+    riceprice=int(riceEntry.get())*30
+    oilprice = int(oilEntry.get()) * 120
+    daalprice = int(daallEntry.get()) * 100
+    wheatprice = int(wheatEntry.get()) * 80
+    sugarprice = int(sugarEntry.get()) * 50
+    teaprice = int(teaEntry.get()) * 140
+
+    totalgroceryprice=riceprice+daalprice+oilprice+sugarprice+teaprice+wheatprice
+    grocerypriceEntry.delete(0,END)
+    grocerypriceEntry.insert(0,f'{totalgroceryprice} Rs')
+
+    #Grocery Tax
+
+    grocerytax = totalgroceryprice * 0.05
+    grocerytaxEntry.delete(0, END)
+    grocerytaxEntry.insert(0, f'{grocerytax} Rs')
+
+    #Cold Drinks
+
+    maazaprice=int(maazaEntry.get())*45
+    tumsupprice = int(tumsupEntry.get()) * 50
+    pepsiprice = int(pepsiEntry.get()) * 45
+    spriteprice = int(spriteEntry.get()) * 50
+    dewprice = int(dewEntry.get()) * 60
+    frootiprice = int(frootiEntry.get()) * 45
+
+    totalcolddrinkprice = tumsupprice+maazaprice+dewprice+frootiprice+spriteprice+pepsiprice
+    colddrinkpriceEntry.delete(0,END)
+    colddrinkpriceEntry.insert(0, f'{totalcolddrinkprice} Rs')
+
+    #Cold Drink Tax
+
+    colddrinktax=totalcolddrinkprice*0.08
+    colddrinktaxEntry.delete(0,END)
+    colddrinktaxEntry.insert(0,f'{colddrinktax} Rs')
+
+    totalbill=Totalcosmeticprice+totalgroceryprice+totalcolddrinkprice+cosmetictax+grocerytax+colddrinktax
+
+
+
+
+
+
+
 
 
 
@@ -184,7 +335,7 @@ sugarEntry.grid(row=4,column=1,pady=9,padx=10)
 sugarEntry.insert(0,0)
 #Tea Powder
 
-tealabel=Label(groceryFrame,text='Tea Power',font=('arial',12,'bold',)
+tealabel=Label(groceryFrame,text='Tea Powder',font=('arial',12,'bold',)
                                   ,fg='white',bg='gray20')
 tealabel.grid(row=5,column=0,pady=9,padx=10,sticky='w')
 
@@ -346,7 +497,7 @@ totalbutton.grid(row=0,column=0,pady=20)
 #Bill bbill
 
 billbutton=Button(Buttonframe,text='Bill',font=('arial',14,'bold'),bg='gray20',fg='white',bd=5,width=8
-                   ,pady=10)
+                   ,pady=10,command=bill_area)
 billbutton.grid(row=0,column=1,pady=20)
 
 #Email
