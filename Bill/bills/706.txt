@@ -1,0 +1,18 @@
+		**Welcome Customer**
+
+Bill Number: 706
+
+Customer Name: 
+
+Mobile Number: 
+============================================================	Product			Quantity			Price
+============================================================
+Face Cream			1			50 Rs
+Sugar			2			100 Rs
+Dew			1			60 Rs
+------------------------------------------------------------
+ Cosmetic Tax			6.0 Rs
+ Grocery Tax			5.0 Rs
+ ColdDrink Tax			4.8 Rs
+------------------------------------------------------------
+ TotalBill			225.8 Rs
