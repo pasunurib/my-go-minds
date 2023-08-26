@@ -5,8 +5,8 @@ s4 = int(input("Enter (Maths) Subject Marks= "))
 s5 = int(input("Enter (Science) Subject Marks= "))
 s6 = int(input("Enter (Social) Subject Marks= "))
 Total = s1+s2+s3+s4+s5+s6
-percentag = (Total/600)*100
-Percentage = round(percentag, 2)
+percentage = float(Total/600)*100
+Percentage = round(percentage, 2)
 # print(Percentage,"%")
 
 if Percentage >= 90:

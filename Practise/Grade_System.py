@@ -12,4 +12,4 @@ elif Mar>60 and Mar<80:
 elif Mar>50 and Mar<60:
     print("Marks:",Mar,"Grade : D")
 else:
-    print("Marks:",Mar,"Fail")
+    print("Marks:",Mar,"Grade : F")
